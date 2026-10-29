@@ -171,8 +171,32 @@ cp .env.example .env
 # Edit .env with your environment configuration
 ```
 
-### 3. Run Unit Tests
+### 3. Run Phase 2 Data Pipeline
+
+#### A. Disease Dataset Preparation (PlantVillage)
+Download the 13 Potato and Tomato folders from Kaggle into `data/raw/plantvillage/`, then run:
 ```bash
+python3 src/disease/prepare_dataset.py
+```
+This performs a stratified 70/15/15 train/val/test split and generates manifest CSVs in `data/processed/`.
+
+#### B. Weather & Mandi Price Pipeline
+Fetch daily weather from Open-Meteo and standardize Agmarknet mandi prices:
+```bash
+# 1. Ingest Agmarknet price series (from data/raw/agmarknet/ or data.gov.in API)
+python3 src/price/fetch_agmarknet.py
+
+# 2. Fetch agro-meteorological observations from Open-Meteo
+python3 src/price/fetch_weather.py --start-date 2022-01-01 --end-date 2024-01-01
+
+# 3. Merge price and weather datasets and print Data Quality Report
+python3 src/price/merge_data.py
+```
+
+### 4. Run Unit Tests
+```bash
+python3 -m unittest discover tests -v
+# or with pytest
 pytest tests/ -v
 ```
 
