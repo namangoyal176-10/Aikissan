@@ -193,7 +193,35 @@ python3 src/price/fetch_weather.py --start-date 2022-01-01 --end-date 2024-01-01
 python3 src/price/merge_data.py
 ```
 
-### 4. Run Unit Tests
+### 4. Train & Evaluate Disease Models (Phase 3)
+
+#### A. Quick Sanity Check (50 images/class, 2 epochs)
+Before heavy training, verify that the training loop, loss, and hardware work:
+```bash
+python3 src/disease/train.py --model-name mobilenet_v3_small --sanity-check
+```
+
+#### B. Full Model Training
+Train MobileNetV3-Small (baseline) or EfficientNet-B0:
+```bash
+# 1. Train MobileNetV3-Small baseline
+python3 src/disease/train.py --model-name mobilenet_v3_small --epochs 15 --batch-size 32 --lr 0.001
+
+# 2. Train EfficientNet-B0
+python3 src/disease/train.py --model-name efficientnet_b0 --epochs 15 --batch-size 32 --lr 0.0003
+```
+
+#### C. Comprehensive Test Split Evaluation & Confusion Analysis
+```bash
+python3 src/disease/evaluate.py --checkpoint models/mobilenet_v3_small_best.pt
+```
+
+#### D. Visual Explainability with Grad-CAM
+```bash
+python3 src/disease/gradcam.py --image path/to/leaf.jpg --model-path models/mobilenet_v3_small_best.pt
+```
+
+### 5. Run Unit Tests
 ```bash
 python3 -m unittest discover tests -v
 # or with pytest
