@@ -1,0 +1,61 @@
+# ==============================================================================
+# KisanMitra AI - Project Dependencies
+# ==============================================================================
+
+# --- Deep Learning & Computer Vision (Disease Detection) ---
+# PyTorch: Core deep learning tensor framework for building and training neural networks
+torch>=2.2.0
+# Torchvision: Pre-trained CNN architectures (MobileNet, EfficientNet) and image transforms
+torchvision>=0.17.0
+# Grad-CAM: Visual interpretability tool to highlight leaf regions driving CNN predictions
+grad-cam>=1.5.0
+# Pillow: Python Imaging Library for reading, resizing, and preprocessing leaf images
+pillow>=10.2.0
+# OpenCV (headless): Computer vision utilities for image filtering and Grad-CAM blending
+opencv-python-headless>=4.9.0
+
+# --- Tabular Data & Time-Series ML (Price & Yield Forecasting) ---
+# NumPy: High-performance multidimensional array and numerical math operations
+numpy>=1.26.0
+# Pandas: Structured tabular data manipulation for mandi prices and agricultural records
+pandas>=2.2.0
+# Scikit-Learn: ML utilities, preprocessors, metrics (RMSE, MAPE, F1), and cross-validation
+scikit-learn>=1.4.0
+# XGBoost: Scalable gradient boosted decision trees for mandi price and yield regression
+xgboost>=2.0.0
+# Statsmodels: Statistical time-series baseline modeling (ARIMA / seasonal decomposition)
+statsmodels>=0.14.0
+# Prophet: Additive time-series forecasting model for seasonal trends in agricultural commodity prices
+prophet>=1.1.5
+
+# --- Weather & Agricultural API Integration ---
+# Requests: Standard HTTP library to query Agmarknet / data.gov.in APIs
+requests>=2.31.0
+# Open-Meteo SDK: Official client for Open-Meteo historical and forecast weather data
+openmeteo-requests>=1.2.0
+# Requests-Cache: Caches API responses locally to prevent redundant network calls
+requests-cache>=1.2.0
+# Retry-Requests: Automatic retry with exponential backoff for resilient API calls
+retry-requests>=2.0.0
+
+# --- Experiment Tracking & Model Monitoring ---
+# MLflow: Tracks model training runs, hyperparameters, metrics, and artifacts
+mlflow>=2.11.0
+
+# --- Data Visualization & Reporting ---
+# Matplotlib: Plotting library for training loss curves, ROC curves, and metric charts
+matplotlib>=3.8.0
+# Seaborn: Statistical plotting library for confusion matrices and price trend charts
+seaborn>=0.13.0
+
+# --- Web Application & UI ---
+# Streamlit: Rapid web app framework for building the farmer-facing interactive UI
+streamlit>=1.32.0
+
+# --- Developer Utilities & Testing ---
+# Python-dotenv: Loads secrets and configuration variables from .env into os.environ
+python-dotenv>=1.0.1
+# Tqdm: Clean console progress bars for data processing and training loops
+tqdm>=4.66.0
+# Pytest: Unit testing framework to ensure code correctness and regression safety
+pytest>=8.1.0

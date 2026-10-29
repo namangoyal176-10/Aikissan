@@ -1,0 +1,63 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# Environment Variables & Secrets
+.env
+.env.local
+.env.*.local
+
+# Datasets and large raw/processed data
+data/**
+!data/
+!data/**/
+!data/**/.gitkeep
+
+# Trained models and large weight checkpoints
+models/**
+!models/
+!models/**/
+!models/**/.gitkeep
+*.pt
+*.pth
+*.h5
+*.hdf5
+*.onnx
+*.pkl
+*.joblib
+*.tar.gz
+
+# MLflow tracking
+mlruns/
+.mlflow/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# IDE specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
